@@ -1,0 +1,42 @@
+{% extends 'ordenes_de_trabajo/base.html' %}
+{% block title %}EmbuCuenca - Registrar Orden{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white py-3">
+                <h4 class="mb-0 fs-5">
+                    <i class="bi bi-file-earmark-plus me-2"></i> Registro de Nueva Orden de Trabajo
+                </h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+
+                    <div class="row g-3">
+                        {% for field in form %}
+                        <div class="col-md-12">
+                            <label class="form-label fw-semibold text-secondary small text-uppercase">
+                                {{ field.label }}
+                            </label>
+                            {{ field }}
+                            {% if field.errors %}
+                            <div class="text-danger small mt-1">{{ field.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+                        <a href="{% url 'ordenes_de_trabajo:lista_ordenes' %}" class="btn btn-outline-secondary px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-success px-4">
+                            <i class="bi bi-check-lg me-1"></i> Guardar Orden
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

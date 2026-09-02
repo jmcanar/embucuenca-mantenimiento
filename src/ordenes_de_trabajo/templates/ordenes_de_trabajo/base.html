@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}EmbuCuenca - Mantenimiento Industrial{% endblock %}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Barra de Navegación Superior -->
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="{% url 'ordenes_de_trabajo:lista_ordenes' %}">
+                <i class="bi bi-gear-fill text-warning me-2"></i> EmbuCuenca <span class="fs-6 text-muted">| Mantenimiento</span>
+            </a>
+            <span class="text-light small"><i class="bi bi-person-circle me-1"></i> Operador / Ingeniero de Planta</span>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container my-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
